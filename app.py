@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 HTML = """
 <!DOCTYPE html>
@@ -91,6 +91,7 @@ def home():
     if request.method == "POST":
         text = request.form["text"]
         style = request.form["style"]
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
         prompt = f"""
 Improve the following text.
